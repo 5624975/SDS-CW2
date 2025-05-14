@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Register</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.username.label }} {{ form.username(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.fullname.label }} {{ form.fullname(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.password.label }} {{ form.password(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.recovery_code.label }} {{ form.recovery_code(class="form-control") }}
+    </div>
+    <div class="d-grid gap-2">
+        {{ form.submit(class="btn btn-primary") }}
+        <a href="{{ url_for('login') }}" class="btn btn-outline-secondary">Back to Login</a>
+    </div>
+</form>
+{% endblock %}
