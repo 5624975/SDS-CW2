@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, session, flash, req
 from config import Config
 from models import db, User, Task
 from forms import RegistrationForm, LoginForm, TaskForm
-
+#Main App.py
 app = Flask(__name__)
 app.config.from_object(Config)
 
@@ -78,7 +78,7 @@ def complete_task(task_id):
         return redirect(url_for('login'))
 
     task = Task.query.get_or_404(task_id)
-    task.completed = not task.completed  # Toggle
+    task.completed = not task.completed  
     db.session.commit()
     flash('Task completion status updated.', 'info')
     return redirect(url_for('dashboard'))

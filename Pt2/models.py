@@ -15,10 +15,11 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
+# models.py
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), nullable=False)
+    completed = db.Column(db.Boolean, default=False) 
     description = db.Column(db.Text)
     assigned_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     assigned_to = db.relationship('User', backref='tasks')
